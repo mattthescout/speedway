@@ -33,6 +33,8 @@ public class Main {
             settings.getReport().setMode(ReportMode.BatchAfterStop);
             settings.getReport().setIncludeAntennaPortNumber(true);
             settings.getReport().setIncludeChannel(true);
+            settings.getReport().getIncludeAntennaPortNumber();
+            settings.getReport().getIncludeChannel();
 
             AntennaConfigGroup ac = settings.getAntennas();
 
