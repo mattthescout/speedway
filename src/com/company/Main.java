@@ -1,10 +1,7 @@
 package com.company;
 
 
-import com.impinj.octane.ImpinjReader;
-import com.impinj.octane.OctaneSdkException;
-import com.impinj.octane.Settings;
-import com.impinj.octane.Tag;
+import com.impinj.octane.*;
 
 import com.impinj.octane.Tag;
 import org.apache.log4j.Logger;
@@ -31,11 +28,23 @@ public class Main {
             System.out.println("Connecting to " + hostname);
             reader.connect(hostname);
 
-//            Tag tag = new Tag();
-//            tag.getAntennaPortNumber();
-            //Settings settings = reader.queryDefaultSettings();
+            Settings settings = reader.queryDefaultSettings();
 
-            //reader.applySettings(settings);
+            settings.getReport().setMode(ReportMode.BatchAfterStop);
+            settings.getReport().setIncludeAntennaPortNumber(true);
+            settings.getReport().setIncludeChannel(true);
+
+            AntennaConfigGroup ac = settings.getAntennas();
+
+            ac.disableAll();
+            ac.getAntenna(1).setEnabled(true);
+            ac.getAntenna(2).setEnabled(true);
+            ac.setIsMaxTxPower(true);
+            ac.setIsMaxRxSensitivity(true);
+
+            reader.applySettings(settings);
+
+            reader.setAntennaChangeListener(new AntennaChangeListenerImplementation());
 
             reader.setTagReportListener(new TagReportListenerImplementation());
 
