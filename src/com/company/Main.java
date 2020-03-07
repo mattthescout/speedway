@@ -16,7 +16,7 @@ public class Main {
         BasicConfigurator.configure();
 
         try {
-            String hostname = "10.0.0.124";
+            String hostname = SampleProperties.hostname;
 
 //            if (hostname == null) {
 //                throw new Exception("Must specify the '"
@@ -35,6 +35,11 @@ public class Main {
             settings.getReport().setIncludeChannel(true);
             settings.getReport().getIncludeAntennaPortNumber();
             settings.getReport().getIncludeChannel();
+
+            settings.setReaderMode(ReaderMode.AutoSetDenseReader);
+            settings.setSearchMode(SearchMode.DualTarget);
+            settings.setSession(2);
+            settings.setTagPopulationEstimate(250);
 
             AntennaConfigGroup ac = settings.getAntennas();
 

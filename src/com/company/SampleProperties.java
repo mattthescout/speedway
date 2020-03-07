@@ -1,7 +1,7 @@
 package com.company;
 
 public class SampleProperties {
-    public static String hostname = "SpeedwayR-13-89-7D";
+    public static String hostname = "10.0.0.124";
     public static String targetTag = "targetTag";
     public static String qtMode = "qtMode";
     public static String powerDbm = "powerdBm";
