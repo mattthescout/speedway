@@ -1,8 +1,13 @@
 package com.company;
 
 
-import com.impinj.octane.*;
-
+import com.impinj.octane.AntennaConfigGroup;
+import com.impinj.octane.ImpinjReader;
+import com.impinj.octane.OctaneSdkException;
+import com.impinj.octane.ReaderMode;
+import com.impinj.octane.ReportMode;
+import com.impinj.octane.SearchMode;
+import com.impinj.octane.Settings;
 import com.impinj.octane.Tag;
 import org.apache.log4j.Logger;
 import org.apache.log4j.BasicConfigurator;
@@ -18,11 +23,6 @@ public class Main {
         try {
             String hostname = SampleProperties.hostname;
 
-//            if (hostname == null) {
-//                throw new Exception("Must specify the '"
-//                        + SampleProperties.hostname + "' property");
-//            }
-
             ImpinjReader reader = new ImpinjReader();
 
             System.out.println("Connecting to " + hostname);
@@ -35,6 +35,7 @@ public class Main {
             settings.getReport().setIncludeChannel(true);
             settings.getReport().getIncludeAntennaPortNumber();
             settings.getReport().getIncludeChannel();
+            settings.getReport().getIncludeSeenCount();
 
             settings.setReaderMode(ReaderMode.AutoSetDenseReader);
             settings.setSearchMode(SearchMode.DualTarget);
