@@ -30,16 +30,16 @@ public class Main {
             ReportConfig report = settings.getReport();
             report.setIncludeAntennaPortNumber(true);
 
-            report.setMode(ReportMode.WaitForQuery);
+            report.setMode(ReportMode.Individual);
 
-            settings.setReaderMode(ReaderMode.DenseReaderM8);
-            settings.setSearchMode(SearchMode.SingleTarget);
-            settings.setSession(1);
+            settings.setReaderMode(ReaderMode.MaxThroughput);
+            settings.setSearchMode(SearchMode.DualTarget);
+            settings.setSession(2);
             settings.setTagPopulationEstimate(16);
 
             AntennaConfigGroup antennas = settings.getAntennas();
             antennas.disableAll();
-            antennas.enableById(new short[] {1, 2, 3, 4, 5});
+            antennas.enableById(new short[] {1, 2, 3, 4});
 
             settings.getReport().setIncludeAntennaPortNumber(true);
             settings.getReport().setIncludeSeenCount(true);
