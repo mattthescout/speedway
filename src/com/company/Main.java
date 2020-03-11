@@ -32,7 +32,7 @@ public class Main {
 
             report.setMode(ReportMode.Individual);
 
-            settings.setReaderMode(ReaderMode.MaxThroughput);
+            settings.setReaderMode(ReaderMode.AutoSetStaticFast);
             settings.setSearchMode(SearchMode.DualTarget);
             settings.setSession(2);
             settings.setTagPopulationEstimate(16);
