@@ -18,8 +18,8 @@ public class Main {
         Logger.getRootLogger().setLevel(Level.ERROR);
 
         try {
-            String hostname = SampleProperties.hostname;
-
+//            String hostname = SampleProperties.hostname;
+            String hostname = args[0];      //args[0] --> ip adress
             ImpinjReader reader = new ImpinjReader();
 
             System.out.println("Connecting to " + hostname);
